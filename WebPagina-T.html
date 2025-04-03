@@ -1,0 +1,89 @@
+<html>
+<head>
+<title>Placeholder Title</title>
+<link rel="Icon" type="png" href="https://cdn3.emoji.gg/emojis/4048-glorp.png"><!-- Este icono es por mientras hasta que me decida que hacer con esta pagina -->
+<style>
+body 
+{
+    text-align: center;       
+}
+#butt 
+{
+    position:absolute; padding: 10px; cursor: hand; 
+}
+</style>
+</head>
+<body>
+    <button id="butt" onclick="clicked()">¡Atrápame!</button>
+
+    <script>//la mitad de los scripts son de chat gpt, el problema con eso es que tengo que hacerles reverse engineering, pero lo hare mas adelante
+            //Tambien me falta hacer todo el lado visual de la pagina, pero supongo que eso no me demorara tanto (ojala no sea foreshadowing)
+        const butt = document.getElementById('butt');
+        let velocityX = 0, velocityY = 0;
+        let posX = window.innerWidth / 2, posY = window.innerHeight / 2;
+        const Velocidad = 0.8; // Constante que determina la velodcidad
+
+        document.addEventListener('mousemove', (event) => {
+            const mouseX = event.clientX;
+            const mouseY = event.clientY;
+		
+            const dx = posX - mouseX;
+            const dy = posY - mouseY;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+	
+
+            if (distance < 250) { // Si el mouse está cerca, aplicar fuerza inversa
+                const force = Math.max(100 - distance, 0); // Fuerza disminuye con la distancia
+                const angle = Math.atan2(dy, dx);
+
+                velocityX += Math.cos(angle) * force * 0.05;
+                velocityY += Math.sin(angle) * force * 0.05;
+            }
+            border();
+        });
+
+
+        function update() {
+            velocityX *= Velocidad;
+            velocityY *= Velocidad;
+
+            posX += velocityX;
+            posY += velocityY;
+
+            // Limitar dentro de la ventana
+            posX = Math.max(0, Math.min(window.innerWidth - butt.offsetWidth, posX));
+            posY = Math.max(0, Math.min(window.innerHeight - butt.offsetHeight, posY));
+
+            butt.style.left = `${posX}px`;
+            butt.style.top = `${posY}px`;
+
+            requestAnimationFrame(update);
+
+        }
+
+        update();
+        
+        
+function clicked()
+{
+
+    alert("3　神说：「要有光」，就有了光。 4　神看光是好的，就把光暗分开了。 5　神称光为「昼」，称暗为「夜」。有晚上，有早晨，这是头一日。");
+    
+}
+
+function border() 
+{
+    //Esta es la función que se me ocurrió utilizar en caso de que el botón llegue al borde de la pantalla
+    //No funciona, pero eventualmente se me ocurrirá cómo replantearlo para que funcione
+if (posX==10||
+    posY==10||
+    posX==window.innerWidth||
+    posY==window.innerHeight)
+    {
+        posX=window.innerWidth/2,posY=window.innerHeight/2
+    }
+}
+        
+</script>
+</body>
+</html>
