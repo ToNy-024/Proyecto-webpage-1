@@ -5,17 +5,30 @@
 <style>
 body 
 {
-    text-align: center;       
+	text-align: center;
+	background-image: conic-gradient(at 50% -10%, white , #b00b69 70%);
 }
 #butt 
 {
-    position:absolute; padding: 10px; cursor: hand; 
+	position:absolute;
+	padding:15px 10px; 
+	cursor: hand; 
+	border-radius: 15px;
+	
 }
+@media (max-width:600px){
+body{
+background-image: conic-gradient(at 50% -100%, #b00b23 20% , white 80%);
+}
+#butt{
+padding:12px 8px;
+}
+}
+
 </style>
 </head>
 <body>
     <button id="butt" onclick="clicked()">¡Atrápame!</button>
-
     <script>//la mitad de los scripts son de chat gpt, el problema con eso es que tengo que hacerles reverse engineering, pero lo hare mas adelante
             //Tambien me falta hacer todo el lado visual de la pagina, pero supongo que eso no me demorara tanto (ojala no sea foreshadowing)
         const butt = document.getElementById('butt');
@@ -71,18 +84,6 @@ function clicked()
     posX=window.innerWidth/2,posY=window.innerHeight/2;
 }
 
-function border() 
-{
-    //Esta es la función que se me ocurrió utilizar en caso de que el botón llegue al borde de la pantalla
-    //No funciona, pero eventualmente se me ocurrirá cómo replantearlo para que funcione
-if (posX==10||
-    posY==10||
-    posX==window.innerWidth||
-    posY==window.innerHeight)
-    {
-        posX=window.innerWidth/2,posY=window.innerHeight/2
-    }
-}
         
 </script>
 </body>
