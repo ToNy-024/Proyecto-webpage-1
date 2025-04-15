@@ -13,6 +13,9 @@ body {
 	cursor: hand; 
 	border-radius: 15px;
 }
+.Alerteration{
+visibility:hidden;
+}
 #wrapperation{
 	transition: transform 0.3s ease;
 }
@@ -35,12 +38,33 @@ body{
 #butt{
 	padding:12px 8px;
 }
+.mo-Izq{
+	transform: translateX(-10px);
+}
+.mo-Der{
+	transform: translateX(10px);
+}
+.mo-Arr{
+	transform: translateY(-10px);
+}
+.mo-Abj{
+	transform: translateY(10px);
+}
+}
+@media(max-height:500px){
+#butt{
+	visibility: hidden;
+}
+.Alerteration{
+	visibility: visible;
 }
 
+}
 </style>
 </head>
-<body id="wrapperation">
-<div>
+<body>
+<h1 class="Alerteration"> Tu dispositivo es muy pequeño para perder el tiempo, intenta <a href="#"> Esta Versión!</a></h1>
+<div id="wrapperation">
 <button id="butt" onclick="clicked()" tabindex="-1">¡Atrápame!</button>
 </div>
 <script>
@@ -107,11 +131,12 @@ const Der = nextX >= window.innerWidth - butt.offsetWidth;
 const Arr = nextY <= 0;
 const Abj = nextY >= window.innerHeight - butt.offsetHeight;
 if (Izq || Der || Arr || Abj){
+	border();
 	if (Izq) mover('Izq');
 	else if (Der) mover('Der');
 	else if (Arr) mover('Arr');
 	else if (Abj) mover('Abj');
-border();
+
 }
 else {
 // Si no tocó los bordes, actualizar posición normalmente
