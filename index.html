@@ -15,6 +15,11 @@
     background-image: conic-gradient(from 0deg at 50% -10%, white 0%, #b00b69 70%);
 }
 
+h2 {
+  text-align: center;
+  user-select: none;
+}
+
 #butt {
     position: absolute;
     padding: 15px 10px;
@@ -86,6 +91,7 @@
 </head>
 
 <body>
+  <h2 id="tiempoPerdido">Tiempo perdido: 00:00:00</h2>
 	<h1 class="Alerteration"> Tu dispositivo es muy pequeño para perder el tiempo, intenta <a href="#"> Esta
 			Versión!</a></h1>
 	<div id="wrapperation">
@@ -181,6 +187,17 @@ update();
 butt.addEventListener("mouseover", () => {
   mover('Izq');
 });
+
+tiempoPerdido = document.getElementById("tiempoPerdido");
+let tiempo = 0;
+setInterval(() => {
+  tiempo += 1;
+  const horas = String(Math.floor(tiempo / 3600)).padStart(2, '0');
+  const minutos = String(Math.floor((tiempo % 3600) / 60)).padStart(2, '0');
+  const segundos = String(tiempo % 60).padStart(2, '0');
+  tiempoPerdido.innerText = `Tiempo perdido: ${horas}:${minutos}:${segundos}`;
+}, 1000); // Actualiza cada segundo
+
 	</script>
 </body>
 
