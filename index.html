@@ -50,8 +50,14 @@ h2 {
 .mo-Abj {
     transform: translateY(30px);
 }
+.hidden {
+  visibility: hidden;
+}
+.shown {
+  visibility: visible;
+}
 
-@media (max-width:600px) or (max-height:600px) {
+@media (max-width:800px) or (max-height:600px) {
     body {
         background-image: conic-gradient(from 235deg at -10% 50%, white 0%, #b00b69 70%);
     }
@@ -78,7 +84,7 @@ h2 {
 }
 
 @media (max-width:500px) or (max-height:500px) {
-    #butt {
+    #butt, #tiempoPerdido {
         visibility: hidden;
     }
 
@@ -98,29 +104,37 @@ h2 {
 		<button id="butt" onclick="clicked()" tabindex="-1">¡Atrápame!</button>
 	</div>
 	<script>
-		const butt = document.getElementById("butt");
-let velocityX = 0,
-  velocityY = 0;
-let posX = window.innerWidth / 2,
-  posY = window.innerHeight / 2;
-const Velocidad = 0.6; // Constante que determina la velodcidad
-let btnCheck = false;
-let mouseX = 0;
-let mouseY = 0;
+	  const butt = document.getElementById("butt");
+    const tipoUsuario = navigator.userAgent.toLowerCase();
+    const Alerting = document.querySelector('.Alerteration');
+    let velocityX = 0,
+    velocityY = 0;
+    let posX = window.innerWidth / 2,
+    posY = window.innerHeight / 2;
+    const Velocidad = 0.6; // Constante que determina la velodcidad
+    let btnCheck = false;
+    let mouseX = 0;
+    let mouseY = 0;
 
-document.addEventListener("mousemove", (event) => {
-  if (btnCheck) return;
-  mouseX = event.clientX;
-  mouseY = event.clientY;
-  const dx = posX - mouseX;
-  const dy = posY - mouseY;
-  const distance = Math.sqrt(dx * dx + dy * dy);
-  if (distance < 250) {
-    const angle = Math.atan2(dy, dx);
-    const force = (250 - distance) / 250; // Va de 1 a 0
-    velocityX += Math.cos(angle) * force * 20;
-    velocityY += Math.sin(angle) * force * 20;
+  if (tipoUsuario.includes('android' || 'mobile' ||'ios')){
+    //Aqui puse una condicional para revisar si el usuario está en movil, se comprobará si esta bienpor el numeroso equipo de QA (yo) cuando se despliegue la página
+    butt.classlist.add('.hidden');
+    Alerting.classlist.add('.shown');
   }
+
+  document.addEventListener("mousemove", (event) => {
+    if (btnCheck) return;
+    mouseX = event.clientX;
+    mouseY = event.clientY;
+    const dx = posX - mouseX;
+    const dy = posY - mouseY;
+    const distance = Math.sqrt(dx * dx + dy * dy);
+    if (distance < 250) {
+      const angle = Math.atan2(dy, dx);
+      const force = (250 - distance) / 250; // Va de 1 a 0
+      velocityX += Math.cos(angle) * force * 20;
+      velocityY += Math.sin(angle) * force * 20;
+    }
 });
 
 function border() {
@@ -187,15 +201,24 @@ update();
 butt.addEventListener("mouseover", () => {
   mover('Izq');
 });
-
-tiempoPerdido = document.getElementById("tiempoPerdido");
+/*
+Logré guardar el tiempo perdido en localstorage, podría añadir luego otras cosas que ocupen el localstorage
+*/
+const tiempoPerdido = document.getElementById("tiempoPerdido");
+let tiempoGuardado = localStorage.getItem('tiempoGuardado');
+let tiempo =parseInt(tiempoGuardado);
+if (tiempoGuardado == null){
 let tiempo = 0;
+} else {
+  let tiempo = parseInt(tiempoGuardado);
+}
 setInterval(() => {
   tiempo += 1;
   const horas = String(Math.floor(tiempo / 3600)).padStart(2, '0');
   const minutos = String(Math.floor((tiempo % 3600) / 60)).padStart(2, '0');
   const segundos = String(tiempo % 60).padStart(2, '0');
   tiempoPerdido.innerText = `Tiempo perdido: ${horas}:${minutos}:${segundos}`;
+  localStorage.setItem('tiempoGuardado',tiempo)
 }, 1000); // Actualiza cada segundo
 
 	</script>
