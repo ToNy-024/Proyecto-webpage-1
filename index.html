@@ -207,7 +207,7 @@ Logré guardar el tiempo perdido en localstorage, podría añadir luego otras co
 const tiempoPerdido = document.getElementById("tiempoPerdido");
 let tiempoGuardado = localStorage.getItem('tiempoGuardado');
 let tiempo =parseInt(tiempoGuardado);
-if (tiempoGuardado == null|| isNaN){
+if (tiempoGuardado == null|| tiempoGuardado.isNaN){
 let tiempo = 0;
 } else {
   let tiempo = parseInt(tiempoGuardado);
