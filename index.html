@@ -207,17 +207,24 @@ Logré guardar el tiempo perdido en localstorage, podría añadir luego otras co
 const tiempoPerdido = document.getElementById("tiempoPerdido");
 let tiempoGuardado = localStorage.getItem('tiempoGuardado');
 let tiempo = parseInt(tiempoGuardado);
-if (isNaN(tiempoGuardado)){
+if (isNaN(tiempo)){ // Arreglado NaN
    tiempo = 0;
 }
-setInterval(() => {
+
+function actualizarTiempo() {
   tiempo += 1;
   const horas = String(Math.floor(tiempo / 3600)).padStart(2, '0');
   const minutos = String(Math.floor((tiempo % 3600) / 60)).padStart(2, '0');
   const segundos = String(tiempo % 60).padStart(2, '0');
   tiempoPerdido.innerText = `Tiempo perdido: ${horas}:${minutos}:${segundos}`;
-  localStorage.setItem('tiempoGuardado',tiempo)
-}, 1000); // Actualiza cada segundo
+  localStorage.setItem('tiempoGuardado', tiempo);
+}
+
+actualizarTiempo(); // Cargar al momento que carga la página
+
+setInterval(() => {
+  actualizarTiempo();
+}, 1000);
 
 	</script>
 </body>
