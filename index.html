@@ -25,8 +25,16 @@
       color: black;
       background-image: conic-gradient(from 0deg at 50% -10%, wheat 0%, #69b00b 70%);
     }
+div{
+  text-align: center;
+  user-select: none;
+}
 h2 {
   text-align: center;
+  user-select: none;
+  display: inline-block;
+}
+select{
   user-select: none;
 }
 
@@ -108,14 +116,16 @@ h2 {
 
 <body>
 	<div>
-	<h2 id="tiempoPerdido">Tiempo perdido: 00:00:00</h2>
-	<select id="Theme" onchange="selectTheme()">
+  <h2> Tiempo perdido: </h2>
+	<h2 id="tiempoPerdido"> 00:00:00</h2>
+	
+	</div>
+  <select id="Theme" onchange="selectTheme()">
 		<option	value="0">Default</option>
 		<option	value="1">Modo Oscuro</option>
 		<option	value="2">Modo Purple</option>
     <option value="3">Modo Lizard</option>
 	</select>
-	</div>
 	<h1 class="Alerteration"> Tu dispositivo es muy pequeño para perder el tiempo, intenta <a href="#"> Esta
 			Versión!</a></h1>
 	<div id="wrapperation">
@@ -234,7 +244,7 @@ function actualizarTiempo() {
   const horas = String(Math.floor(tiempo / 3600)).padStart(2, '0');
   const minutos = String(Math.floor((tiempo % 3600) / 60)).padStart(2, '0');
   const segundos = String(tiempo % 60).padStart(2, '0');
-  tiempoPerdido.innerText = `Tiempo perdido: ${horas}:${minutos}:${segundos}`;
+  tiempoPerdido.innerText = ` ${horas}:${minutos}:${segundos}`;
   localStorage.setItem('tiempoGuardado', tiempo);
 }
 
@@ -247,33 +257,18 @@ setInterval(() => {
 
 function selectTheme(){
 	let Valoration = document.getElementById("Theme").value;  
-	switch(Valoration){
-		case "0":
-			document.body.classList.remove("bDarkMode","burpleMode","bLizardMode");
-      localStorage.setItem("Theme", "0");
-			break;
-		case "1":
-      document.body.classList.remove("burpleMode","bLizardMode");
-			document.body.classList.add("bDarkMode");
-      localStorage.setItem("Theme", "1");
-			break;
-		case "2":
-      document.body.classList.remove("bDarkMode","bLizardMode");
-			document.body.classList.add("burpleMode");
-      localStorage.setItem("Theme", "2");
-			break;
-    case "3":
-      document.body.classList.remove("burpleMode","bDarkMode");
-      document.body.classList.add("bLizardMode");
-      localStorage.setItem("Theme", "3");
-      break; 
-	}
+	pageChanger(Valoration);
 }
 function loadTheme(){
   const Themation = localStorage.getItem("Theme");
   if (Themation !== null){
     document.getElementById("Theme").value = Themation;
-    switch(Themation){
+    pageChanger(Themation);
+  }
+}
+function pageChanger(t){
+  //Me fije que podia hacer esta funcion, que anteriormente estaba copiada dos veces, haciendo una funcion orientada a objeto, asi no tengo que escribir lo mismo dos veces
+  switch(t){
 		case "0":
 			document.body.classList.remove("bDarkMode","burpleMode","bLizardMode");
       localStorage.setItem("Theme", "0");
@@ -294,9 +289,6 @@ function loadTheme(){
       localStorage.setItem("Theme", "3");
       break; 
 	}
-  }
-	
-selectTheme();
 }
 loadTheme();
 	</script>
