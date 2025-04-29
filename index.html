@@ -32,7 +32,7 @@ h2 {
 }
 
 #wrapperation {
-    transition: transform 0.3s ease;
+    transition: transform 0.4s ease;
 }
 
 .mo-Izq {
@@ -97,7 +97,14 @@ h2 {
 </head>
 
 <body>
-  <h2 id="tiempoPerdido">Tiempo perdido: 00:00:00</h2>
+	<div>
+	<h2 id="tiempoPerdido">Tiempo perdido: 00:00:00</h2>
+	<select id="Theme" onchange="selectTheme()">
+		<option	value="0">Default</option>
+		<option	value="1">Theme 1</option>
+		<option	value="2">Theme 2</option>
+	</select>
+	</div>
 	<h1 class="Alerteration"> Tu dispositivo es muy pequeño para perder el tiempo, intenta <a href="#"> Esta
 			Versión!</a></h1>
 	<div id="wrapperation">
@@ -225,6 +232,25 @@ actualizarTiempo(); // Cargar al momento que carga la página
 setInterval(() => {
   actualizarTiempo();
 }, 1000);
+
+function selectTheme(){
+	let Valoration = document.getElementById("Theme").value;
+	switch(Valoration){
+		case "0":
+			alert("Default");
+			
+			break;
+		case "1":
+			alert("Tema 1");
+			
+			break;
+		case "2":
+			alert("Tema 2");
+			
+			break;
+		
+	}
+}
 
 	</script>
 </body>
