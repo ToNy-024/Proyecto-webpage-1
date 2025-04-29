@@ -4,17 +4,27 @@
 <head>
 	<title>Placeholder Title</title>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="botonTiempo" content="width=device-width, initial-scale=1.0">
 	<link rel="icon" type="png" href="https://cdn3.emoji.gg/emojis/4048-glorp.png">
 	<!-- Este icono es por mientras hasta que me decida que hacer con esta pagina -->
 	<style>
 		body {
     height: 100vh;
     margin: 0;
-    background: #b00b69;
     background-image: conic-gradient(from 0deg at 50% -10%, white 0%, #b00b69 70%);
 }
-
+    .bDarkMode{
+      color:white;
+      background-image: conic-gradient(from 0deg at 50% -10%, #b00b69 0%, black 70%);
+    }
+    .burpleMode{
+      color:#80cfe7;
+      background-image: conic-gradient(from 0deg at 50% -10%, #b00b69 0%, #6b00b9 70%);
+    }
+    .bLizardMode{
+      color: black;
+      background-image: conic-gradient(from 0deg at 50% -10%, wheat 0%, #69b00b 70%);
+    }
 h2 {
   text-align: center;
   user-select: none;
@@ -32,7 +42,7 @@ h2 {
 }
 
 #wrapperation {
-    transition: transform 0.4s ease;
+    transition: transform 0.2s ease;
 }
 
 .mo-Izq {
@@ -101,8 +111,9 @@ h2 {
 	<h2 id="tiempoPerdido">Tiempo perdido: 00:00:00</h2>
 	<select id="Theme" onchange="selectTheme()">
 		<option	value="0">Default</option>
-		<option	value="1">Theme 1</option>
-		<option	value="2">Theme 2</option>
+		<option	value="1">Modo Oscuro</option>
+		<option	value="2">Modo Acqua</option>
+    <option value="3">Modo Lizard</option>
 	</select>
 	</div>
 	<h1 class="Alerteration"> Tu dispositivo es muy pequeño para perder el tiempo, intenta <a href="#"> Esta
@@ -236,19 +247,20 @@ setInterval(() => {
 function selectTheme(){
 	let Valoration = document.getElementById("Theme").value;
 	switch(Valoration){
-		case "0":
-			alert("Default");
-			
+		case '0':
+			document.body.classList.remove("bDarkMode","burpleMode","bLizardMode");
 			break;
-		case "1":
-			alert("Tema 1");
-			
+		case '1':
+      document.body.classList.remove("burpleMode","bLizardMode");
+			document.body.classList.add("bDarkMode");
 			break;
-		case "2":
-			alert("Tema 2");
-			
+		case '2':
+      document.body.classList.remove("bDarkMode","bLizardMode");
+			document.body.classList.add("burpleMode");
 			break;
-		
+    case "3":
+      document.body.classList.remove("burpleMode","bDarkMode");
+      document.body.classList.add("bLizardMode");
 	}
 }
 
