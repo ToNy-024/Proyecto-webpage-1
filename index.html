@@ -112,7 +112,7 @@ h2 {
 	<select id="Theme" onchange="selectTheme()">
 		<option	value="0">Default</option>
 		<option	value="1">Modo Oscuro</option>
-		<option	value="2">Modo Acqua</option>
+		<option	value="2">Modo Purple</option>
     <option value="3">Modo Lizard</option>
 	</select>
 	</div>
@@ -230,7 +230,7 @@ if (isNaN(tiempo)){ // Arreglado NaN
 }
 
 function actualizarTiempo() {
-  tiempo += 1;
+ 
   const horas = String(Math.floor(tiempo / 3600)).padStart(2, '0');
   const minutos = String(Math.floor((tiempo % 3600) / 60)).padStart(2, '0');
   const segundos = String(tiempo % 60).padStart(2, '0');
@@ -241,29 +241,64 @@ function actualizarTiempo() {
 actualizarTiempo(); // Cargar al momento que carga la página
 
 setInterval(() => {
+  tiempo += 1;
   actualizarTiempo();
 }, 1000);
 
 function selectTheme(){
-	let Valoration = document.getElementById("Theme").value;
+	let Valoration = document.getElementById("Theme").value;  
 	switch(Valoration){
-		case '0':
+		case "0":
 			document.body.classList.remove("bDarkMode","burpleMode","bLizardMode");
+      localStorage.setItem("Theme", "0");
 			break;
-		case '1':
+		case "1":
       document.body.classList.remove("burpleMode","bLizardMode");
 			document.body.classList.add("bDarkMode");
+      localStorage.setItem("Theme", "1");
 			break;
-		case '2':
+		case "2":
       document.body.classList.remove("bDarkMode","bLizardMode");
 			document.body.classList.add("burpleMode");
+      localStorage.setItem("Theme", "2");
 			break;
     case "3":
       document.body.classList.remove("burpleMode","bDarkMode");
       document.body.classList.add("bLizardMode");
+      localStorage.setItem("Theme", "3");
+      break; 
 	}
 }
-
+function loadTheme(){
+  const Themation = localStorage.getItem("Theme");
+  if (Themation !== null){
+    document.getElementById("Theme").value = Themation;
+    switch(Themation){
+		case "0":
+			document.body.classList.remove("bDarkMode","burpleMode","bLizardMode");
+      localStorage.setItem("Theme", "0");
+			break;
+		case "1":
+      document.body.classList.remove("burpleMode","bLizardMode");
+			document.body.classList.add("bDarkMode");
+      localStorage.setItem("Theme", "1");
+			break;
+		case "2":
+      document.body.classList.remove("bDarkMode","bLizardMode");
+			document.body.classList.add("burpleMode");
+      localStorage.setItem("Theme", "2");
+			break;
+    case "3":
+      document.body.classList.remove("burpleMode","bDarkMode");
+      document.body.classList.add("bLizardMode");
+      localStorage.setItem("Theme", "3");
+      break; 
+	}
+  }
+	
+selectTheme();
+}
+loadTheme();
 	</script>
 </body>
 
