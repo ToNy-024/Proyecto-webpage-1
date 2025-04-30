@@ -14,5 +14,5 @@ Para el **backend**, planeo utilizar **PHP** una vez que tenga un buen entendimi
 
 ## Enlace al proyecto
 
-Puedes acceder al sitio web en el siguiente enlace: *link*  
+Puedes acceder al sitio web en el siguiente enlace:  
 *[Time!=Gold](https://tony-024.github.io/Proyecto-webpage-1/)*
