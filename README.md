@@ -1,4 +1,18 @@
-# Proyecto-webpage-1
-Me pidieron que hiciera una pagina web en mi clase, iré realizandola dependiendo de las cosas que aprenda
+# Time!=Gold
 
-Logré añadir la pagina en un link, https://tony-024.github.io/Proyecto-webpage-1/
+Este proyecto es una página web que estoy desarrollando como parte de una actividad para mi clase. A medida que avance en mis estudios, iré mejorando y ampliando el sitio web conforme aprenda nuevas tecnologías.
+
+## Tecnologías utilizadas
+
+Actualmente, estoy utilizando las siguientes herramientas para el desarrollo del **frontend**:
+
+- HTML
+- CSS
+- JavaScript
+
+Para el **backend**, planeo utilizar **PHP** una vez que tenga un buen entendimiento de este lenguaje. También estoy abierto a explorar otras tecnologías que me permitan gestionar datos en una base de datos.
+
+## Enlace al proyecto
+
+Puedes acceder al sitio web en el siguiente enlace: *link*  
+*[Time!=Gold](https://tony-024.github.io/Proyecto-webpage-1/)*
