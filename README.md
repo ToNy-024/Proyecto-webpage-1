@@ -1,7 +1,7 @@
 # Time!=Gold
 
-Este proyecto es una página web que estoy desarrollando como parte de una actividad para mi clase. A medida que avance en mis estudios, iré mejorando y ampliando el sitio web conforme aprenda nuevas tecnologías.
-El objetivo principal de la pagina web es otorgarle al usuario una forma entretenida de utilizar su tiempo de
+Este proyecto es una página web que estoy desarrollando como parte de una actividad para mi clase. A medida que avance en mis estudios, iré mejorando y ampliando el sitio web conforme aprenda nuevas tecnologías.\
+El objetivo principal de la pagina web es otorgarle al usuario una forma entretenida de utilizar su tiempo de ocio
 
 ## Tecnologías utilizadas
 
