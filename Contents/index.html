@@ -7,12 +7,13 @@
 	<meta name="botonTiempo" content="width=device-width, initial-scale=1.0">
 	<link rel="icon" type="png" href="https://cdn3.emoji.gg/emojis/4048-glorp.png">
 	<link rel="stylesheet" href="Styling.css">
+	
 </head>
 
 <body>
 	<div>
-  <h2> Tiempo perdido: </h2>
-	<h2 id="tiempoPerdido"> 00:00:00</h2>
+  <h1> Tiempo perdido: </h1>
+	<h1 id="tiempoPerdido"> 00:00:00</h1>
 	
 	</div>
   <select id="Theme" onchange="selectTheme()">
@@ -21,11 +22,29 @@
 		<option	value="2">Modo Purple</option>
     <option value="3">Modo Lizard</option>
 	</select>
+	<button id="gluglu" onclick="gluglu()">Iniciar Sesion</button>
+	<table id="ranking">
+  <thead>
+	<h3>Ranking</h3>
+    <tr>
+      <th>#</th>
+      <th>Jugador</th>
+      <th>Tiempo</th>
+      <th>Imagen</th>
+    </tr>
+  </thead>
+  <tbody></tbody>
+</table>
 	<h1 class="Alerteration"> Tu dispositivo es muy pequeño para perder el tiempo, intenta <a href="#"> Esta
 			Versión!</a></h1>
+			
 	<div id="wrapperation">
 		<button id="butt" onclick="clicked()" tabindex="-1">¡Atrápame!</button>
 	</div>
+	
+	
+	<script src="https://www.gstatic.com/firebasejs/11.7.1/firebase-app-compat.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/11.7.1/firebase-auth-compat.js"></script>
 	<script src="Jscript.js">	</script>
 </body>
 </html>

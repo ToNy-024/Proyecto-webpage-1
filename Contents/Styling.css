@@ -1,6 +1,7 @@
 body {
     height: 100vh;
     margin: 0;
+    font-family: Comic Sans MS, cursive, sans-serif;
     background-image: conic-gradient(from 0deg at 50% -10%, white 0%, #b00b69 70%);
 }
     .bDarkMode{
@@ -19,15 +20,29 @@ div{
   text-align: center;
   user-select: none;
 }
-h2 {
+h1 {
   text-align: center;
   user-select: none;
   display: inline-block;
 }
 select{
-  user-select: none;
+    font-family: Comic Sans MS;
+    user-select: none;
 }
-
+.pfp, img{
+    height: 20px;
+    width: 20px;
+    border-radius: 30%;
+}
+table{
+    border:solid 2px white
+}
+table, h3, button{
+    user-select: none;
+}
+button{
+    font-family: Comic Sans MS;
+}
 #butt {
     position: absolute;
     padding: 15px 10px;
@@ -64,6 +79,8 @@ select{
 .shown {
   visibility: visible;
 }
+
+
 
 @media (max-width:800px) or (max-height:600px) {
     body {
