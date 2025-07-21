@@ -40,14 +40,32 @@ table{
 table, h3, button{
     user-select: none;
 }
-button{
+button, select {
     font-family: Comic Sans MS;
+    background: linear-gradient(69deg, #b0690b 0%, #b6900b 100%);
+    color: white;
+    border: none;
+    border-radius: 15px;
+    padding: 15px 25px;
+    font-size: 1.1em;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s, box-shadow 0.2s;
+}
+button:hover, select:hover, button:focus {
+    background: linear-gradient(69deg, #b6900b 0%, #b0690b 100%);
+    transform: scale(1.05);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.22);
+}
+option {
+    background: #b0690b;
+    color: white;
+}
+table {
+    border:none;
 }
 #butt {
     position: absolute;
-    padding: 15px 10px;
-    cursor: hand;
-    border-radius: 15px;
 }
 
 .Alerteration {

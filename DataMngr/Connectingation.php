@@ -40,10 +40,12 @@ function obteneraccion(){
                 echo json_encode(obtenerLeaderboard());
                 break;
             case "crear":
-                if (!empty($resultado)&& isset($resultado[0]["usid"])) {
-                    $accion = "actualizar";
-                } 
-                return crearLeaderboard($datos);
+                if (!empty($resultado) && isset($resultado[0]["usid"])) {
+                    // Si existe, actualiza en vez de crear
+                    return actualizarTiempo($datos);
+                } else {
+                    return crearLeaderboard($datos);
+                }
                 break;
             case "actualizar":
                 return actualizarTiempo($datos);
