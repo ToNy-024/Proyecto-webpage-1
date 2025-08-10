@@ -16,6 +16,11 @@ body {
       color: black;
       background-image: conic-gradient(from 0deg at 50% -10%, wheat 0%, #69b00b 70%);
     }
+footer {
+    position: fixed;
+    bottom: 0;
+    display: flex;
+}
 div{
   text-align: center;
   user-select: none;
@@ -135,4 +140,37 @@ table {
         visibility: visible;
     }
 
+}
+
+#popupMejorTiempo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.4);
+  z-index: 999;
+}
+
+#popupMejorTiempo > div {
+  background: white;
+  padding: 30px 40px;
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+  text-align: center;
+  color: #b00b69;
+  min-width: 250px;
+}
+
+#mejorTiempoValor {
+  font-size: 2em;
+  margin: 15px 0;
+}
+.popupTexto {
+  font-size: 1.5em;
+  margin-bottom: 20px;
+  color: #b00b69;
 }

@@ -12,8 +12,8 @@
 
 <body>
 	<div>
-  <h1> Tiempo Perdido: </h1>
-	<h1 id="tiempoPerdido"> 00:00:00</h1>
+  <h1> Tiempo Ganado: </h1>
+	<h1 id="tiempoRobado"> 00:00:00</h1>
 	
 	</div>
   <select id="Theme" onchange="selectTheme()">
@@ -39,16 +39,24 @@
 			Versión!</a></h1>
 			
 	<div id="wrapperation">
-		<button id="butt" onclick="clicked()" tabindex="-1">¡Atrápame!</button>
+		<button id="butt"  tabindex="-1">¡Escapa!</button>
 	</div>
 	
 	<footer>
-		<a href="saveT.html"><button>Modo Ganar Tiempo (nuevo)</button></a>
+		<a href="index.html"><button>Modo Perder Tiempo</button></a>
 		<h5>ToNy-024 Ninguno de los derechos reservados</h5>
 		
 	</footer>
+	<div id="popupMejorTiempo" class="hidden">
+  <div>
+    <h2 class="popupTexto">¡Nuevo Mejor Tiempo!</h2>
+    <div id="mejorTiempoValor"></div>
+    <button onclick="guardarMejorTiempo()">Guardar Tiempo</button>
+    <button onclick="cerrarPopup()">Reintentar</button>
+  </div>
+</div>
 	<script src="https://www.gstatic.com/firebasejs/11.7.1/firebase-app-compat.js"></script>
 	<script src="https://www.gstatic.com/firebasejs/11.7.1/firebase-auth-compat.js"></script>
-	<script src="Jscript.js">	</script>
+	<script src="Sscript.js">	</script>
 </body>
 </html>

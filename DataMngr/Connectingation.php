@@ -24,6 +24,7 @@ $stmt->execute();
 $resultado = $stmt->fetchall(PDO::FETCH_ASSOC);
 return $resultado;
 }
+// Esta abominacion obtiene las acciones del mismo boton y las compara con la base de datos para saber si existe
 function obteneraccion(){
     if ($_SERVER["REQUEST_METHOD"] == "POST"){
         $contenido = file_get_contents("php://input");
