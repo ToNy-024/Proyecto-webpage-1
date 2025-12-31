@@ -20,4 +20,4 @@ Para el **backend**:
 ## Enlace al proyecto
 
 Puedes acceder al sitio web en el siguiente enlace:  
-*[Time!=Gold](https://timeisnotgold.great-site.net/)*
+*[Time!=Gold]()*
